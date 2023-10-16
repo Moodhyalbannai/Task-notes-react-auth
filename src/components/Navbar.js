@@ -4,7 +4,7 @@ import UserContext from "../context/UserContext";
 import { login, logout } from "../api/auth";
 
 const Navbar = () => {
-  const [user, setUser] = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   const handleLogout = () => {
     setUser(false);

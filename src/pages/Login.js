@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { login } from "../api/auth";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
+import UserContext from "../context/UserContext";
 
 const Login = () => {
   const [userInfo, setUserInfo] = useState({});
+  const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   const { mutate: login_mutate } = useMutation({
@@ -19,8 +21,8 @@ const Login = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    // Add login logic here
     login_mutate();
+    setUser(true);
   };
 
   return (

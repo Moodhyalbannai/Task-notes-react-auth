@@ -20,10 +20,10 @@ function App() {
   const isLoggedIn = checkToken();
 
   return (
-    <UserContext.Provider value={[user, setUser]}>
+    <UserContext.Provider value={{ user, setUser }}>
       <div className="App font-mono ">
         <Navbar />
-        <h1 className="text-[50px]">{`${isLoggedIn}`}</h1>
+        <h1 className="text-[50px] text-white">{`${isLoggedIn}`}</h1>
         <Routes>
           <Route path="/" Component={Home} />
           <Route path="/notes" Component={Notes} />
